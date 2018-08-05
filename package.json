@@ -1,0 +1,29 @@
+{
+  "name": "micro-router",
+  "version": "1.0.0",
+  "description": "A really simple client-side JS routing library for single page apps",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "babel --out-dir dist --ignore *.test.js src"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Wahuh/micro-router.git"
+  },
+  "keywords": [
+    "router"
+  ],
+  "author": "'Thanh <'tmdoan98@gmail.com'>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Wahuh/micro-router/issues"
+  },
+  "homepage": "https://github.com/Wahuh/micro-router#readme",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-stage-2": "^6.24.1"
+  }
+}
