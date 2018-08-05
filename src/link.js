@@ -6,6 +6,7 @@ const Link = (props, path, linkName) => {
         event.preventDefault();
         props.router.setCurrentPath = link.href;
     });
+    return link;
 }
 
 export default Link;
