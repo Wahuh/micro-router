@@ -14,11 +14,14 @@ class Router {
     setCurrentPath(path) {
         history.pushState(null, '', path);
         this.getCurrentPath();
+        this.match(path);
     }
 
     match(path) {
-        if (path === this.currentPath) {
+        if (path in this.routes) {
             this.routes[path].callback();
+        } else {
+            //do 404 here
         }
     }
 
