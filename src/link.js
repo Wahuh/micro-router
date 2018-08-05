@@ -4,7 +4,7 @@ const Link = (props, path, linkName) => {
     link.innerHTML = linkName;
     link.addEventListener('click', () => {
         event.preventDefault();
-        props.router.setCurrentPath = link.href;
+        props.router.setCurrentPath(path);
     });
     return link;
 }
