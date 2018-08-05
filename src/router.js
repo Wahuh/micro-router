@@ -1,10 +1,11 @@
 class Router {
     constructor() {
         this.currentPath = window.location.pathname;
+        this.routes = {};
+        this.root = '/';
     }
 
-    routes = {};
-    root = '/';
+
 
     getCurrentPath() {
         this.currentPath = window.location.pathname;
@@ -17,7 +18,7 @@ class Router {
 
     match(path) {
         if (path === this.currentPath) {
-            routes[path].callback();
+            this.routes[path].callback();
         }
     }
 
