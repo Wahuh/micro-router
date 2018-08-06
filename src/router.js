@@ -5,8 +5,6 @@ class Router {
         this.root = '/';
     }
 
-
-
     getCurrentPath() {
         this.currentPath = window.location.pathname;
     }
@@ -19,7 +17,7 @@ class Router {
 
     match(path) {
         if (path in this.routes) {
-            this.routes[path].callback();
+            this.routes[path]()
         } else {
             //do 404 here
         }
