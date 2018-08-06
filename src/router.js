@@ -16,6 +16,9 @@ class Router {
     }
 
     match(path) {
+        console.log(this.currentPath);
+        console.log(path);
+        
         if (this.routes.hasOwnProperty(path) && this.currentPath === path) {
             this.routes[path]()
         } else {
