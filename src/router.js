@@ -1,11 +1,31 @@
 class Router {
     constructor() {
         this.currentPath = window.location.pathname;
+        this.previousPaths = [];
+        this.futurePaths = [];
         this.routes = {};
         this.root = '/';
+        window.onpopstate = function(event) {
+            let cachedPath = this.currentPath();
+            //now is it back or forward button press?
+            getCurrentPath();
+            if (this.previousPaths.length > 0 && this.currentPath === this.previousPaths[this.previousPaths.length - 1]) {
+                //back button press
+                this.previousPaths.pop();
+                this.futurePaths.push(cachedPath);
+                match(this.currentPath);
+            } else {
+                //assume forward
+            }
+        }
+    }
+
+    setPreviousPath() {
+        this.previousPath.push(this.currentPath);
     }
 
     getCurrentPath() {
+        this.setPreviousPath();
         this.currentPath = window.location.pathname;
     }
 
