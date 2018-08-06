@@ -5,7 +5,7 @@ class Router {
         this.futurePaths = [];
         this.routes = {};
         this.root = '/';
-        window.onpopstate = function(event) {
+        window.onpopstate = (event) => {
             let cachedPath = this.currentPath;
             //now is it back or forward button press?
             this.getCurrentPath();
