@@ -21,7 +21,7 @@ class Router {
     }
 
     setPreviousPath() {
-        this.previousPath.push(this.currentPath);
+        this.previousPaths.push(this.currentPath);
     }
 
     getCurrentPath() {
