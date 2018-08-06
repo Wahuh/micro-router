@@ -8,12 +8,12 @@ class Router {
         window.onpopstate = function(event) {
             let cachedPath = this.currentPath;
             //now is it back or forward button press?
-            getCurrentPath();
+            this.getCurrentPath();
             if (this.previousPaths.length > 0 && this.currentPath === this.previousPaths[this.previousPaths.length - 1]) {
                 //back button press
                 this.previousPaths.pop();
                 this.futurePaths.push(cachedPath);
-                match(this.currentPath);
+                this.match(this.currentPath);
             } else {
                 //assume forward
             }
