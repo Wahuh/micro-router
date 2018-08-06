@@ -5,6 +5,9 @@ class Router {
         this.futurePaths = [];
         this.routes = {};
         this.root = '/';
+
+        document.addEventListener("DOMContentLoaded", this.onDOMContentLoaded, false);
+
         window.onpopstate = (event) => {
             let cachedPath = this.currentPath;
             //now is it back or forward button press?
@@ -19,6 +22,23 @@ class Router {
                 this.previousPaths.push(cachedPath);
                 this.match(this.currentPath);
             }
+        }
+    }
+
+    onDOMContentLoaded() {
+        //check if user has landed on a valid path else display 404
+        if (this.isValid(this.currentPath)) {
+            this.match(this.currentPath);
+        } else {
+            this.routes['404']();
+        }
+    }
+
+    isValid(path) {
+        if (this.routes.hasOwnProperty(path)) {
+            return true;
+        } else {
+            return false;
         }
     }
 
@@ -42,15 +62,14 @@ class Router {
         console.log(path);
         
         if (this.routes.hasOwnProperty(path) && this.currentPath === path) {
-            this.routes[path]()
+            this.routes[path]();
         } else {
-            //do 404 here
+            this.routes['404']();
         }
     }
 
     register(path, callback) {
         this.routes[path] = callback;
-        this.match(path);
     }
 }
 
