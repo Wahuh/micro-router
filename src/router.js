@@ -27,6 +27,8 @@ class Router {
 
     onDOMContentLoaded() {
         //check if user has landed on a valid path else display 404
+        console.log(this.currentPath);
+        console.log(this.routes);
         if (this.isValid(this.currentPath)) {
             this.match(this.currentPath);
         } else {
