@@ -16,7 +16,7 @@ class Router {
     }
 
     match(path) {
-        if (path in this.routes) {
+        if (this.routes.hasOwnProperty(path)) {
             this.routes[path]()
         } else {
             //do 404 here
